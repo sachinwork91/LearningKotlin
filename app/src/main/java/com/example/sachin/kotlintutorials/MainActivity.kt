@@ -9,13 +9,8 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-    override fun onClick(view: View?) {
-    val name= editText.text.toString()
-    resultText.setText(name)
-    }
-
-
     //  EditText editText;
+    //test
 
     lateinit var editText: EditText
     lateinit var resultText: TextView
@@ -32,8 +27,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         button.setOnClickListener(this)
 
-
-
-
     }
+
+    override fun onClick(view: View?) {
+        val name= editText.text.toString()
+        resultText.setText(name)
+    }
+
+
+
+
 }
