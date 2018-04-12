@@ -11,12 +11,9 @@ import kotlinx.android.synthetic.main.activity_add_two_numbers.*
 //This activity demonstrates the use of a common Onclick Listener by the two buttons
 
 
-class AddTwoNumbers : AppCompatActivity()  , View.OnClickListener{
+class AddTwoNumbers : AppCompatActivity() {
 
-
-
-    //  EditText editText;
-
+   //  EditText editText;
     lateinit var num1et: EditText
     lateinit var num2et: EditText
     lateinit var resultText: TextView
@@ -34,35 +31,30 @@ class AddTwoNumbers : AppCompatActivity()  , View.OnClickListener{
         addbutton = findViewById(R.id.addbutton)
 
 
-        addbutton.setOnClickListener(this)
-        subbutton.setOnClickListener(this)
-    }
 
-
-    override fun onClick(view: View?) {
-
-        when(view?.id){
-
-            R.id.addbutton -> {
+        var addListener = object: View.OnClickListener{
+            override fun onClick(view: View?) {
                 val num1 = num1et.text.toString().toInt()
                 val num2 = num2et.text.toString().toInt()
 
                 resultText.setText( (num1+num2).toString())
-            }
 
-            R.id.subbutton -> {
+            }
+        }
+
+        var subListener = object: View.OnClickListener{
+            override fun onClick(view: View?) {
                 val num1 = num1et.text.toString().toInt()
                 val num2 = num2et.text.toString().toInt()
 
-                resultText.setText((num1-num2).toString() )
+                resultText.setText( (num1 - num2).toString())
+
             }
-
-
-
-
         }
 
-
+        addbutton.setOnClickListener(addListener )
+        subbutton.setOnClickListener(subListener)
     }
+
 
 }
